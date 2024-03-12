@@ -128,3 +128,19 @@ Draw
 }
 
 ```
+# GPTRanking Args
+
+```
+GPTRanking 클래스의 생성자입니다.
+prompt_chain에 의해서 생성되는 결과는 문자열로 반환이 되어야 됩니다.
+
+:param prompt_chain: 프롬프트 체인을 나타내는 LangChain 객체입니다.
+:param description: 프롬프트 생성을 위한 작업 또는 문맥을 설명하는 문자열입니다.
+:param test_cases: 프롬프트를 생성하는 데 사용되는 다양한 시나리오나 입력을 나타내는 문자열 목록입니다.
+:param user_prompt_list: (선택 사항) 비교에 포함할 사용자 정의 프롬프트의 목록입니다.
+:param use_rar: (선택 사항) 프롬프트 생성에 RAR 기법을 사용할지 여부를 나타내는 부울 값입니다. 기본값은 False입니다.
+:param use_csv: (선택 사항) 프롬프트 평가를 CSV 파일에 저장할지 여부를 나타내는 부울 값입니다. 기본값은 False입니다.
+:param ranking_model_name: (선택 사항) 기본값은 "gpt-3.5-turbo" 입니다.
+:param judge_prompt: (선택 사항) 기본값은 None 입니다.
+:param n: (선택 사항) 생성할 프롬프트의 수를 지정하는 정수입니다. 기본값은 5입니다.
+```
