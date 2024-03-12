@@ -1,4 +1,4 @@
-# 🌟 Langchain 프롬프트 랭킹 프로젝트 🌟
+# 🌟 Langchain Ranking 프로젝트 🌟
 
 Langchain 프롬프트 랭킹 프로젝트에 오신 것을 환영합니다! 🎉 이 프로젝트는 gpt-prompt-engineer의 혁신적인 개념을에 감명받아서 랭체인을 통해서 구현한 랭체인을 사용하여 모델을 평가하는 것에 대해 모두 이야기합니다. 🚀
 
@@ -14,9 +14,9 @@ RESPCET : https://github.com/mshumer/gpt-prompt-engineer
 
 ## 🛠 How does it work?
 
-'Langchain Prompt Ranking'는 특정 사용 사례를 기반으로 다양한 프롬프트를 생성하고 엄격하게 테스트한 후 Elo 등급 시스템을 사용하여 순위를 매깁니다. 💡
+'Langchain Ranking'는 특정 사용 사례를 기반으로 다양한 프롬프트를 생성하고 엄격하게 테스트한 후 Elo 등급 시스템을 사용하여 순위를 매깁니다. 💡
 
-'Langchain Prompt Ranking' creates a variety of prompts based on specific use cases, tests them rigorously, and ranks them using the Elo rating system. 
+'Langchain Ranking' creates a variety of prompts based on specific use cases, tests them rigorously, and ranks them using the Elo rating system. 
 
 ## 🏆 Why did you choose Langchain?
 
