@@ -1,16 +1,43 @@
-# Langchain Prompt Ranking
+# 🌟 Langchain 프롬프트 랭킹 프로젝트 🌟
 
-Respect : https://github.com/mshumer/gpt-prompt-engineer
+Langchain 프롬프트 랭킹 프로젝트에 오신 것을 환영합니다! 🎉 이 프로젝트는 gpt-prompt-engineer의 혁신적인 개념을에 감명받아서 랭체인을 통해서 구현한 랭체인을 사용하여 모델을 평가하는 것에 대해 모두 이야기합니다. 🚀
 
-해당 레포지토리기반으로 랭체인을 통해 구현한 프로젝트입니다. gpt-prompt-engineer의 아이디어는 대단합니다. 저는 Langchain을 통해 LLM Chain만 생성 할 수 있으면 모든 모델을 GPT모델들을 통해 평가를 할 수 있는 랭킹 프로젝트를 생성하였습니다. 
+Welcome to the Langchain Prompt Ranking Project!  This project is inspired by the innovative concept of gpt-prompt-engineer and implemented through LangChain, all about evaluating models using LangChain. 
 
+## 🤖 What is gpt-prompt-engineer?
 
-I created a ranking project where any model could be evaluated using GPT models by implementing a project using Langchain to build only the LLM (Language Learning Model) chain based on the impressive concept of 'gpt-prompt-engineer.'
+RESPCET : https://github.com/mshumer/gpt-prompt-engineer
 
-gpt-prompt-engineer'는 GPT-4 및 GPT-3.5-Turbo와 같은 큰 언어 모델에 최적의 성능을 내도록 도와주는 유용한 도구입니다. 특정 사용 사례와 테스트 사례를 기반으로 다양한 가능한 프롬프트를 생성하고, 각 프롬프트를 테스트하여 성능을 비교하며, ELO 등급 체계를 사용하여 순위를 매깁니다. 처음에는 모든 프롬프트가 1200점의 ELO 등급으로 시작되는데, 테스트 사례에 대한 응답을 생성하는 데 사용될 때 경쟁에 따라 ELO 등급은 성능에 따라 달라집니다. 이렇게 하면 어떤 프롬프트가 가장 효과적인지 쉽게 파악할 수 있습니다.
+'gpt-prompt-engineer'는 GPT-4 및 GPT-3.5-Turbo와 같은 대규모 언어 모델의 성능을 향상시키는 탁월한 도구입니다. 마치 모델을 최적화하는 마법의 지팡이처럼 작동합니다! ✨
 
+'gpt-prompt-engineer' is an excellent tool to improve the performance of large language models such as GPT-4 and GPT-3.5-Turbo. It works like a magic wand to optimize your model! 
 
-GPT Prompt Engineer is a tool that helps to generate, test, and rank the best prompts for getting optimal performance from large language models like GPT-4 and GPT-3.5-Turbo. It creates various possible prompts based on given use cases and test cases, tests them for each case, compares their performance using an Elo rating system, and ranks them accordingly. Initially, all prompts start with an Elo rating of 1200, and their ratings change depending on their performance in generating responses for test cases. This makes it easy to determine which prompt is most effective.
+## 🛠 How does it work?
+
+'Langchain Prompt Ranking'는 특정 사용 사례를 기반으로 다양한 프롬프트를 생성하고 엄격하게 테스트한 후 Elo 등급 시스템을 사용하여 순위를 매깁니다. 💡
+
+'Langchain Prompt Ranking' creates a variety of prompts based on specific use cases, tests them rigorously, and ranks them using the Elo rating system. 
+
+## 🏆 Why did you choose Langchain?
+
+Langchain을 사용하면 언어 학습 모델 (LLM) 체인을 구축할 수 있으며, 이는 프로젝트의 기반을 형성합니다. Langchain을 사용하여 모델을 심사하는 데 집중할 수 있습니다. 💪
+
+Langchain allows you to build a chain of language learning models (LLMs), which form the basis of your project. Langchain allows you to focus on vetting your models. 
+
+## 💡 Ranking process
+
+1. **프롬프트 생성:** 🤔 다양한 시나리오에 맞는 다양한 프롬프트를 생성합니다.
+2. 
+   **Create prompts:**  Create a variety of prompts for different scenarios.
+   
+3. **테스트 및 비교:** 🧪 각 프롬프트는 엄격한 테스트를 거쳐 성능을 비교합니다.
+4. 
+   **TEST & COMPARE:**  Each prompt undergoes rigorous testing to compare performance.
+   
+5. **Elo 등급 시스템:** 📈 프롬프트의 효과에 따라 Elo 등급 시스템을 사용하여 프롬프트를 순위로 매깁니다.
+6. 
+   **Elo Rating System:**  Use the Elo rating system to rank prompts based on their effectiveness.
+
 
 # 작동 방법
 ```
