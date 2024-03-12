@@ -1,1 +1,1 @@
-from .gpt_ranking import GPTRanking
+from .GPTRanking import GPTRanking
