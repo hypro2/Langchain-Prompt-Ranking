@@ -82,6 +82,9 @@ Winner: Discover the top 10 secrets to unlocking your full potential.
 Draw
 100%|█████████████████████████████████| 18/18 [00:49<00:00,  2.76s/it]
 Draw
-{'example1': 1118.6540526700558, 'Discover the top 10 secrets to unlocking your full potential.': 1257.36515660952, "Craft an enticing headline that captivates your audience's attention.": 1203.8262872651787, 'Craft compelling headlines that entice and engage your target audience.': 1220.1545034552455}
+{'example1': 1118.6540526700558,
+'Discover the top 10 secrets to unlocking your full potential.': 1257.36515660952,
+"Craft an enticing headline that captivates your audience's attention.": 1203.8262872651787,
+'Craft compelling headlines that entice and engage your target audience.': 1220.1545034552455}
 
 ```
