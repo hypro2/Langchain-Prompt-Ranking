@@ -3,6 +3,8 @@
 https://github.com/mshumer/gpt-prompt-engineer
 
 해당 레포지토리기반으로 랭체인을 통해 구현한 프로젝트입니다. 
+gpt-prompt-engineer의 아이디어는 대단합니다. 
+저는 Langchain을 통해 LLM Chain만 생성 할 수 있으면 모든 모델을 GPT모델들을 통해 평가를 할 수 있는 랭킹 프로젝트를 생성하였습니다. 
 
 # 작동 방법
 ```
