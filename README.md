@@ -12,9 +12,15 @@ RESPCET : https://github.com/mshumer/gpt-prompt-engineer
 
 저는 이 프로젝트에 깊은 인상을 받아 랭체인과 같은 일을 할 수 있는 프로젝트를 만들기로 결심했습니다. 
 
+최근에 gpt-prompt-engineer GitHub 리포지토리를 발견했고, 그 프로젝트가 저에게 큰 영감을 주었습니다. 특히 gpt-prompt-engineer에서 제공하는 프롬프트를 평가하는접근 방식이 매우 인상적었습니다. 그래서 새로운 개인 프로젝트로 시작하고자 하는데, 마음에 안드시거나 불편하시면 언제든지 연락 주시기 바랍니다. 다시 한번, 감사드립니다!
+
+
 'gpt-prompt-engineer' is an excellent tool to improve the performance of large language models such as GPT-4 and GPT-3.5-Turbo. It works like a magic wand to optimize your model! 
 
 I was so impressed with the project that I decided to create a project that could do the same thing with LangChain. 
+
+"Hello! I recently discovered the gpt-prompt-engineer GitHub repository, and that project has inspired me greatly. I found the approach to evaluating prompts provided by gpt-prompt-engineer to be very impressive. So, I'm thinking of starting a new personal project based on that. Please feel free to reach out if you have any concerns or discomfort about it. Once again, thank you!"
+
 
 ## 🛠 How does it work?
 
