@@ -10,7 +10,11 @@ RESPCET : https://github.com/mshumer/gpt-prompt-engineer
 
 'gpt-prompt-engineer'는 GPT-4 및 GPT-3.5-Turbo와 같은 대규모 언어 모델의 성능을 향상시키는 탁월한 도구입니다. 마치 모델을 최적화하는 마법의 지팡이처럼 작동합니다! ✨
 
+저는 이 프로젝트에 깊은 인상을 받아 랭체인과 같은 일을 할 수 있는 프로젝트를 만들기로 결심했습니다. 
+
 'gpt-prompt-engineer' is an excellent tool to improve the performance of large language models such as GPT-4 and GPT-3.5-Turbo. It works like a magic wand to optimize your model! 
+
+I was so impressed with the project that I decided to create a project that could do the same thing with LangChain. 
 
 ## 🛠 How does it work?
 
