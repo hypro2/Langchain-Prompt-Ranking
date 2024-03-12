@@ -1,10 +1,16 @@
-# Langchain Ranking
+# Langchain Prompt Ranking
 
-https://github.com/mshumer/gpt-prompt-engineer
+Respect : https://github.com/mshumer/gpt-prompt-engineer
 
-해당 레포지토리기반으로 랭체인을 통해 구현한 프로젝트입니다. 
-gpt-prompt-engineer의 아이디어는 대단합니다. 
-저는 Langchain을 통해 LLM Chain만 생성 할 수 있으면 모든 모델을 GPT모델들을 통해 평가를 할 수 있는 랭킹 프로젝트를 생성하였습니다. 
+해당 레포지토리기반으로 랭체인을 통해 구현한 프로젝트입니다. gpt-prompt-engineer의 아이디어는 대단합니다. 저는 Langchain을 통해 LLM Chain만 생성 할 수 있으면 모든 모델을 GPT모델들을 통해 평가를 할 수 있는 랭킹 프로젝트를 생성하였습니다. 
+
+
+I created a ranking project where any model could be evaluated using GPT models by implementing a project using Langchain to build only the LLM (Language Learning Model) chain based on the impressive concept of 'gpt-prompt-engineer.'
+
+gpt-prompt-engineer'는 GPT-4 및 GPT-3.5-Turbo와 같은 큰 언어 모델에 최적의 성능을 내도록 도와주는 유용한 도구입니다. 특정 사용 사례와 테스트 사례를 기반으로 다양한 가능한 프롬프트를 생성하고, 각 프롬프트를 테스트하여 성능을 비교하며, ELO 등급 체계를 사용하여 순위를 매깁니다. 처음에는 모든 프롬프트가 1200점의 ELO 등급으로 시작되는데, 테스트 사례에 대한 응답을 생성하는 데 사용될 때 경쟁에 따라 ELO 등급은 성능에 따라 달라집니다. 이렇게 하면 어떤 프롬프트가 가장 효과적인지 쉽게 파악할 수 있습니다.
+
+
+GPT Prompt Engineer is a tool that helps to generate, test, and rank the best prompts for getting optimal performance from large language models like GPT-4 and GPT-3.5-Turbo. It creates various possible prompts based on given use cases and test cases, tests them for each case, compares their performance using an Elo rating system, and ranks them accordingly. Initially, all prompts start with an Elo rating of 1200, and their ratings change depending on their performance in generating responses for test cases. This makes it easy to determine which prompt is most effective.
 
 # 작동 방법
 ```
@@ -82,9 +88,16 @@ Winner: Discover the top 10 secrets to unlocking your full potential.
 Draw
 100%|█████████████████████████████████| 18/18 [00:49<00:00,  2.76s/it]
 Draw
-{'example1': 1118.6540526700558,
+
+
+{
+'example1': 1118.6540526700558,
+
 'Discover the top 10 secrets to unlocking your full potential.': 1257.36515660952,
+
 "Craft an enticing headline that captivates your audience's attention.": 1203.8262872651787,
-'Craft compelling headlines that entice and engage your target audience.': 1220.1545034552455}
+
+'Craft compelling headlines that entice and engage your target audience.': 1220.1545034552455
+}
 
 ```
