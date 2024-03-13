@@ -1,4 +1,4 @@
-# 🌟 Langchain Ranking 프로젝트 🌟
+# 🌟 Langchain Prompt Ranking 프로젝트 🌟
 
 Langchain 프롬프트 랭킹 프로젝트에 오신 것을 환영합니다! 🎉 이 프로젝트는 gpt-prompt-engineer의 혁신적인 개념을에 감명받아서 랭체인을 통해서 구현한 랭체인을 사용하여 모델을 평가하는 것에 대해 모두 이야기합니다. 🚀
 
