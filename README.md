@@ -37,15 +37,15 @@ Langchain allows you to build a chain of language learning models (LLMs), which 
 ## 💡 Ranking process
 
 1. **프롬프트 생성:** 🤔 다양한 시나리오에 맞는 다양한 프롬프트를 생성합니다.
-2. 
+ 
    **Create prompts:**  Create a variety of prompts for different scenarios.
    
-3. **테스트 및 비교:** 🧪 각 프롬프트는 엄격한 테스트를 거쳐 성능을 비교합니다.
-4. 
+2. **테스트 및 비교:** 🧪 각 프롬프트는 엄격한 테스트를 거쳐 성능을 비교합니다.
+ 
    **TEST & COMPARE:**  Each prompt undergoes rigorous testing to compare performance.
    
-5. **Elo 등급 시스템:** 📈 프롬프트의 효과에 따라 Elo 등급 시스템을 사용하여 프롬프트를 순위로 매깁니다.
-6. 
+3. **Elo 등급 시스템:** 📈 프롬프트의 효과에 따라 Elo 등급 시스템을 사용하여 프롬프트를 순위로 매깁니다.
+ 
    **Elo Rating System:**  Use the Elo rating system to rank prompts based on their effectiveness.
 
 
