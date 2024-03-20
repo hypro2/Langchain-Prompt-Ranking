@@ -5,8 +5,8 @@ from tqdm import tqdm
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers.string import StrOutputParser
 
-from ranking_util import prompt_template, rar_prompting, get_score
-from prompt_variable import PromptVariable as pv
+from gpt_ranking.ranking_util import prompt_template, rar_prompting, get_score
+from gpt_ranking.prompt_variable import PromptVariable as pv
 
 
 class GptRankingGenerate:
@@ -44,7 +44,8 @@ class GptRankingGenerate:
             for _ in range(self.n):
                 gen_prompt = chain.invoke({"input": f"Here are some test cases: ```{self.test_cases}```\n"
                                                     f"Here is the desctiption of the use-cases: '{self.description}'\n"
-                                                    f"Respond with your prompt, and nothing else. Be creative."})
+                                                    f"Don't include the contents of the test cases. You need to create a universal prompt."
+                                                    f"Respond to the prompt and do nothing else. Be creative."})
 
                 if self.use_rar:
                     gen_prompt = rar_prompting(gen_prompt)
@@ -87,6 +88,8 @@ class GptRankingCompare:
                     #prompt 업데이트
                     prompt1_args = prompt_args.copy()
                     prompt2_args = prompt_args.copy()
+                    prompt1_args["case"] = case
+                    prompt2_args["case"] = case
                     prompt1_args["input"] = prompt1
                     prompt2_args["input"] = prompt2
 
@@ -96,6 +99,7 @@ class GptRankingCompare:
                     else:
                         prompt_result1 = self.llm_chain.invoke(prompt1_args)
                         generation_output[prompt1] = prompt_result1
+                        print(prompt_result1)
 
                     # 출력 생성2
                     if generation_output.get(prompt2, False):
@@ -103,6 +107,7 @@ class GptRankingCompare:
                     else:
                         prompt_result2 = self.llm_chain.invoke(prompt2_args)
                         generation_output[prompt2] = prompt_result2
+                        print(prompt_result2)
 
                     # 점수 비교
                     score1 = get_score(self.description, case, prompt_result1, prompt_result2, judge_prompt=judge_prompt, model_name=ranking_model_name)
@@ -129,7 +134,7 @@ class GptRankingCompare:
 
             pbar.close()
             print(prompt_ratings)
-
+            # print(generation_output)
             return prompt_ratings
 
         except Exception as e:

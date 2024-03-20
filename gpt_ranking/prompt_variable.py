@@ -13,7 +13,7 @@ class PromptVariable:
     GPT_GENERATE_SYSTEM = """You are an artificial intelligence that creatively generates sentences.
     The sentences must be written in English. Be creative to get the best results.
     You'll be graded on your sentence performance, but don't cheat!
-    Don't include example sentences in your sentences. The most important thing is that you only output sentences. Don't include anything else in your message."""
+    Don't include example sentences in your message. You're creating a universal prompt candidate. Don't include anything else in the message."""
     # """귀하는 창의적으로 문장을 생성하는 인공지능입니다.
     # 문장은 영어로 작성해야 합니다. 최상의 결과를 얻으려면 창의력을 발휘하세요.
     # 문장 성능에 따라 점수가 매겨지지만 속임수를 쓰지 마세요!
