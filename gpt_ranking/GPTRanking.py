@@ -18,14 +18,15 @@ class GPTRanking:
     def __init__(self,
                  prompt_chain,
                  description,
-                 test_cases,
-                 gerate_cases=None,
+                 compare_cases,
+                 generate_cases=None,
                  user_prompt_list=None,
                  use_rar=False,
                  use_csv=False,
                  ranking_model_name="gpt-3.5-turbo",
                  judge_prompt=None,
-                 n=5
+                 n=5,
+                 human_eval=False
                  ):
         """
         GPTRanking 클래스의 생성자입니다.
@@ -33,7 +34,8 @@ class GPTRanking:
 
         :param prompt_chain: 프롬프트 체인을 나타내는 LangChain 객체입니다.
         :param description: 프롬프트 생성을 위한 작업 또는 문맥을 설명하는 문자열입니다.
-        :param test_cases: 프롬프트를 생성하는 데 사용되는 다양한 시나리오나 입력을 나타내는 문자열 목록입니다.
+        :param compare_cases: 프롬프트를 생성하는 데 사용되는 다양한 시나리오나 입력을 나타내는 문자열 목록입니다.
+        :param generate_cases: 비교할때의 test_cases와 생성을 위한 예시 프롬프트가 다를때 사용하는 문자열 목록입니다.
         :param user_prompt_list: (선택 사항) 비교에 포함할 사용자 정의 프롬프트의 목록입니다.
         :param use_rar: (선택 사항) 프롬프트 생성에 RAR 기법을 사용할지 여부를 나타내는 부울 값입니다. 기본값은 False입니다.
         :param use_csv: (선택 사항) 프롬프트 평가를 CSV 파일에 저장할지 여부를 나타내는 부울 값입니다. 기본값은 False입니다.
@@ -44,14 +46,15 @@ class GPTRanking:
         """
         self.prompt_chain = prompt_chain
         self.description = description
-        self.test_cases = test_cases
-        self.gerate_cases= gerate_cases
+        self.compare_cases = compare_cases
+        self.generate_cases = generate_cases
         self.user_prompt_list = user_prompt_list
         self.use_rar = use_rar
         self.use_csv = use_csv
         self.ranking_model_name = ranking_model_name
         self.judge_prompt = judge_prompt
         self.n = n
+        self.human_eval = human_eval
 
     def generate_prompts(self):
         """
@@ -59,15 +62,15 @@ class GPTRanking:
 
         :return: gen_prompt_list: 생성된 프롬프트의 목록입니다.
         """
-        if self.gerate_cases is None:
-            gerate_test_cases = self.test_cases
+        if self.generate_cases is None:
+            generate_test_cases = self.compare_cases
         else:
-            gerate_test_cases = self.gerate_cases
+            generate_test_cases = self.generate_cases
 
         gen_prompt_list = GptRankingGenerate(description=self.description,
-                                              test_cases=gerate_test_cases,
-                                              use_rar=self.use_rar,
-                                              n=self.n).make()
+                                             test_cases=generate_test_cases,
+                                             use_rar=self.use_rar,
+                                             n=self.n).make()
         return gen_prompt_list
 
     def compare_prompts(self, compare_prompt, **prompt_kwargs):
@@ -80,9 +83,10 @@ class GPTRanking:
         :return: prompt_ratings: 생성된 프롬프트의 평가를 담은 사전입니다.
         """
         prompt_ratings = GptRankingCompare(description=self.description,
-                                            compare_prompt=compare_prompt,
-                                            test_cases=self.test_cases,
-                                            llm_chain=self.prompt_chain
+                                           compare_prompt=compare_prompt,
+                                           test_cases=self.compare_cases,
+                                           llm_chain=self.prompt_chain,
+                                           human_eval=self.human_eval
                                            ).make(judge_prompt=self.judge_prompt,
                                                   ranking_model_name=self.ranking_model_name,
                                                   **prompt_kwargs)

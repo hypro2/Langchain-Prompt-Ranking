@@ -43,7 +43,7 @@ class GptRankingGenerate:
             gen_prompts_list = []
             for _ in range(self.n):
                 gen_prompt = chain.invoke({"input": f"Here are some test cases: ```{self.test_cases}```\n"
-                                                    f"Here is the desctiption of the use-cases: '{self.description}'\n"
+                                                    f"Here is the description of the use-cases: '{self.description}'\n"
                                                     f"Don't include the contents of the test cases. You need to create a universal prompt."
                                                     f"Respond to the prompt and do nothing else. Be creative."})
 
@@ -62,11 +62,12 @@ class GptRankingGenerate:
 
 class GptRankingCompare:
 
-    def __init__(self, description, compare_prompt, test_cases, llm_chain):
+    def __init__(self, description, compare_prompt, test_cases, llm_chain, human_eval=False):
         self.description = description
         self.compare_prompt = compare_prompt
         self.test_cases = test_cases
         self.llm_chain = llm_chain
+        self.human_eval = human_eval
 
     def make(self, judge_prompt=None, ranking_model_name="gpt-3.5-turbo", **kwargs):
 
@@ -94,29 +95,38 @@ class GptRankingCompare:
                     prompt2_args["input"] = prompt2
 
                     # 출력 생성1
-                    if generation_output.get(prompt1, False):
-                        prompt_result1 = generation_output.get(prompt1)
+                    if generation_output.get(f"{case}_{prompt1}", False):
+                        prompt_result1 = generation_output.get(f"{case}_{prompt1}")
                     else:
                         prompt_result1 = self.llm_chain.invoke(prompt1_args)
-                        generation_output[prompt1] = prompt_result1
-                        print(prompt_result1)
+                        generation_output[f"{case}_{prompt1}"] = str(prompt_result1)
 
                     # 출력 생성2
-                    if generation_output.get(prompt2, False):
-                        prompt_result2 = generation_output.get(prompt2)
+                    if generation_output.get(f"{case}_{prompt2}", False):
+                        prompt_result2 = generation_output.get(f"{case}_{prompt2}")
                     else:
                         prompt_result2 = self.llm_chain.invoke(prompt2_args)
-                        generation_output[prompt2] = prompt_result2
-                        print(prompt_result2)
-
-                    # 점수 비교
-                    score1 = get_score(self.description, case, prompt_result1, prompt_result2, judge_prompt=judge_prompt, model_name=ranking_model_name)
-                    score2 = get_score(self.description, case, prompt_result2, prompt_result1, judge_prompt=judge_prompt, model_name=ranking_model_name)
+                        generation_output[f"{case}_{prompt2}"] = str(prompt_result2)
 
                     # 점수를 숫자로 변환
-                    score1 = 1 if score1 == "A" else 0 if score1 == "B" else 0.5
-                    score2 = 1 if score2 == 'B' else 0 if score2 == "A" else 0.5
-                    score = (score1 + score2) / 2
+                    if self.human_eval:
+                        while True:
+                            print(f'\n\nA:\n{prompt_result1}\n\n')
+                            print(f'\n\nB:\n{prompt_result2}\n\n')
+                            winner = input("\n\n인간 평가: \n\n").strip().lower()
+                            if winner in {"a", "b", "draw"}:
+                                score = 1 if winner == "a" else 0 if winner == "b" else 0.5
+                                break
+                            else:
+                                print("\n\nA, B, 또는 draw 중 하나만 입력하세요.\n\n")
+
+                    else:
+                        # 점수 비교
+                        score1 = get_score(self.description, case, prompt_result1, prompt_result2, judge_prompt=judge_prompt, model_name=ranking_model_name)
+                        score2 = get_score(self.description, case, prompt_result2, prompt_result1, judge_prompt=judge_prompt, model_name=ranking_model_name)
+                        score1 = 1 if score1 == "A" else 0 if score1 == "B" else 0.5
+                        score2 = 1 if score2 == 'B' else 0 if score2 == "A" else 0.5
+                        score = (score1 + score2) / 2
 
                     # ELO rating 방법으로 rating 업데이트
                     rating1, rating2 = prompt_ratings[prompt1], prompt_ratings[prompt2]
